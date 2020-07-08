@@ -9,6 +9,7 @@ namespace API_emezu
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
             // Serviços e configuração da API da Web
 
             // Rotas da API da Web

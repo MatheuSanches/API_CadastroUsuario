@@ -9,7 +9,7 @@ namespace API_emezu.App_Start
 {
     public class conexao
     {
-        private static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\marqu\\Documents\\API_emerson.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Csystems\\Desktop\\estudos\\API_emezu\\API_emezu\\API_emezu\\API.mdf;Integrated Security=True;Connect Timeout=30";
         private static SqlConnection con = null;
         public static SqlConnection obterConexao()
         {
