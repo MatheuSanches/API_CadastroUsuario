@@ -97,6 +97,7 @@ namespace API_emezu.Controllers
             cmd.ExecuteNonQuery();
             conexao.fecharConexao();
             return Request.CreateResponse(HttpStatusCode.OK);
+            
         }
     }
 }

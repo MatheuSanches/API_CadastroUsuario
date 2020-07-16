@@ -12,9 +12,9 @@ namespace API_emezu.Models
         public string telefone  { get; set; }
         public string endereco { get; set; }
 
-        /*public Usuario(string text)
-        {
-            this.nome = text;
-        }*/
+        //public Usuario(string text)
+        //{
+        //    this.nome = text;
+        //}
     }
 }
