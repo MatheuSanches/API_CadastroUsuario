@@ -9,7 +9,8 @@ namespace API_emezu.App_Start
 {
     public class conexao
     {
-        private static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Csystems\\Desktop\\estudos\\API_emezu\\API_emezu\\API_emezu\\API.mdf;Integrated Security=True;Connect Timeout=30";
+        private static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\projetos\\API_emezu\\API_emezu\\teste\\FACIL_UEDA.MDF;Integrated Security=True;Connect Timeout=30";
+        //private static string str = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=D:\\BKP_PCCASA\\Arquivos\\Arquivos\\API_emezu\\API_emezu\\API.mdf;Integrated Security=True;Connect Timeout=30";
         private static SqlConnection con = null;
         public static SqlConnection obterConexao()
         {

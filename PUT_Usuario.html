@@ -5,18 +5,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Document</title>
     <script type="text/javascript">
-    function load(id)
+    function load(pes_codigo)
 				{
                     alert("chamou");
                     $.ajax({
-					url: "http://localhost:51815/api/Usuario?Id=" + id,
+					url: "https://localhost:44322/api/Usuario?Id=" + pes_codigo,
     type: "GET", // <- Change here
     contentType: "application/json",
     success: function(dados) {
-        alert(data.nome);
-        $('#nome1').value(data.nome);
-        $('#endereco1').value(data.endereco);
-        $('#telefone1').value(data.telefone);
+        alert(data.pes_codigo);
+        $('#codigo').value(data.pes_codigo);
+        $('#endereco1').value(data.pes_endereco);
+        $('#telefone1').value(data.pes_telefone);
     },
         error: function(msg1) {alert( "Erro ao excluir" );
     }
@@ -27,12 +27,12 @@
 <body load()>
     <div class="container">
         <!--<input type="button" onclick="load()" value="Excluir Usuario">-->
-<form id="Usuario" method="put" action="http://localhost:51815/api/Usuario?Id=" + id> 
+<form id="Usuario" method="put" action="https://localhost:44322/api/Usuario?Id=" + pes_codigo> 
     <div>
-        <label for="nome">Nome</label>
+        <label for="cod">Código</label>
     </div>
     <div>
-        <input id="nome1" name="nome" type="text" />
+        <input id="cod1" name="codigo" type="text" />
     </div>
     <div>
         <label  for="endereco">Endereco</label>
