@@ -21,7 +21,7 @@ namespace API_emezu.Controllers
         public HttpResponseMessage Get()
         {
             List<Usuario> usuarios = new List<Usuario>();
-            string query = "SELECT PES_Codigo, PES_Endereco, PES_Telefone FROM PESSOA";
+            string query = "SELECT Id, nome, endereco, telefone FROM usuario";
             SqlCommand cmd = new SqlCommand(query, con);
             conexao.obterConexao();
             cmd.CommandType = CommandType.Text;
@@ -35,10 +35,10 @@ namespace API_emezu.Controllers
                 {
                     Usuario usu = new Usuario()
                     {
-                        //Id = row["id"] == DBNull.Value ? 0 : Convert.ToInt32(row["id"]),
-                        pes_codigo = row["pes_codigo"] == DBNull.Value ? 0 : Convert.ToInt32(row["pes_codigo"]),
-                        pes_endereco = row["pes_endereco"] == DBNull.Value ? string.Empty : row["pes_endereco"].ToString(),
-                        pes_telefone = row["pes_telefone"] == DBNull.Value ? string.Empty : row["pes_telefone"].ToString()
+                        Id = row["id"] == DBNull.Value ? 0 : Convert.ToInt32(row["id"]),
+                        nome = row["nome"] == DBNull.Value ? string.Empty : row["nome"].ToString(),
+                        endereco = row["endereco"] == DBNull.Value ? string.Empty : row["endereco"].ToString(),
+                        telefone = row["telefone"] == DBNull.Value ? string.Empty : row["telefone"].ToString()
                     };
 
                     usuarios.Add(usu);
@@ -52,7 +52,7 @@ namespace API_emezu.Controllers
         }
         public DataTable Get(int Id)
         {
-            string query = "SELECT PES_Codigo, PES_Endereco, PES_Telefone FROM PESSOA WHERE PES_Codigo="+Id;
+            string query = "SELECT Id, nome, endereco, telefone FROM usuario WHERE Id="+Id;
             SqlCommand cmd = new SqlCommand(query, con);
             conexao.obterConexao();
             cmd.CommandType = CommandType.Text;
@@ -73,7 +73,7 @@ namespace API_emezu.Controllers
 
         public void Post(Usuario user)
         {
-            string query = "INSERT INTO PESSOA(PES_Codigo, PES_Endereco, PES_Telefone) VALUES ('"+user.pes_codigo+"','"+user.pes_endereco+"','"+user.pes_telefone+"');";
+            string query = "INSERT INTO usuario(nome, endereco, telefone) VALUES ('"+user.nome+"','"+user.endereco+"','"+user.telefone+"');";
             SqlCommand cmd = new SqlCommand(query, con);
             conexao.obterConexao();
             cmd.CommandType = CommandType.Text;
@@ -86,7 +86,7 @@ namespace API_emezu.Controllers
         {
             if (Id <= 0)
                 return BadRequest("Not a valid id");
-            string query = "DELETE FROM PESSOA WHERE PES_Codigo=" + Id;
+            string query = "DELETE FROM usuario WHERE Id=" + Id;
             SqlCommand cmd = new SqlCommand(query, con);
             conexao.obterConexao();
             cmd.CommandType = CommandType.Text;
@@ -105,10 +105,10 @@ namespace API_emezu.Controllers
         }
         public HttpResponseMessage PutUsuario(int id, Usuario usuario)
         {
-            string query = "UPDATE PESSOA SET (PES_Codigo, PES_Endereco, PES_Telefone) VALUES ('" + usuario.pes_codigo + "','" + usuario.pes_endereco + "','" + usuario.pes_telefone + "');";
-            Convert.ToInt32(usuario.pes_codigo);
-            Convert.ToString(usuario.pes_endereco);
-            Convert.ToString(usuario.pes_telefone);
+            string query = "UPDATE usuario SET (nome, endereco, telefone) VALUES ('" + usuario.nome + "','" + usuario.endereco + "','" + usuario.telefone + "');";
+            Convert.ToInt32(usuario.nome);
+            Convert.ToString(usuario.endereco);
+            Convert.ToString(usuario.telefone);
             SqlCommand cmd = new SqlCommand(query, con);
             conexao.obterConexao();
             cmd.CommandType = CommandType.Text;
